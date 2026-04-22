@@ -89,6 +89,26 @@ class CalculatorTest {
     }
 
 
-    //TODO hier weitere Tests erstellen
-}
 
+    //TODO hier weitere Tests erstellen
+
+
+    @Test
+    @DisplayName("Zwei positive Zahlen werden mithilfe des minus Operators subtrahiert")
+    void testSubtrahierren() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(0);
+        calc.pressBinaryOperationKey("-");
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(5);
+        calc.pressEqualsKey();
+
+        String expected = "5";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+
+    }
+}
