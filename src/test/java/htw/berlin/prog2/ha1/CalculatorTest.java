@@ -111,4 +111,32 @@ class CalculatorTest {
         assertEquals(expected, actual);
 
     }
+
+@Test
+@DisplayName(" Ein falscher Operator wird eingesetzt")
+void testWrongOperator() {
+    Calculator calc = new Calculator();
+
+    calc.pressDigitKey(6);
+    calc.pressUnaryOperationKey("%");
+
+    String expected = "0.06";
+    String actual = calc.readScreen();
+
+    assertEquals(expected, actual);
+}
+@Test
+@DisplayName("Ein Fehler taucht auf, wenn man durh 0 teilt")
+void testDivisionByDotkey() {
+    Calculator calc = new Calculator();
+
+    calc.pressDigitKey(0);
+    calc.pressUnaryOperationKey("1/x");
+
+    String expected = "Error";
+    String actual = calc.readScreen();
+
+    assertEquals(expected, actual);
+}
+
 }
